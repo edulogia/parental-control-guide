@@ -23,7 +23,8 @@ edulogia-guide/
 │   └── guida-studenti.yaml     # Ricetta per la Guida Studenti
 ├── themes/default/             # Template HTML e foglio di stile CSS per stampa A4
 ├── src/                        # Motore di validazione, assemblaggio e generazione PDF
-└── tests/                      # Test automatici (Vitest)
+├── tests/                      # Test automatici (Vitest)
+└── LICENSE                     # Licenza CC-BY-SA-4.0
 ```
 
 ---
@@ -127,3 +128,9 @@ npm run build
 # Opzionale: genera una singola guida
 npm run build -- --guide guides/guida-docenti.yaml
 ```
+
+---
+
+## Licenza
+
+Questo repository è rilasciato sotto licenza [Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA-4.0)](./LICENSE).

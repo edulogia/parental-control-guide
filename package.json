@@ -2,6 +2,7 @@
   "name": "edulogia-guide",
   "version": "1.0.0",
   "description": "Generatore modulare di guide PDF basato su frammenti Markdown e ricette YAML",
+  "license": "CC-BY-SA-4.0",
   "type": "module",
   "private": true,
   "scripts": {
