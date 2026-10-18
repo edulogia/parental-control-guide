@@ -1,0 +1,50 @@
+id: family_link_completo
+output_filename: family_link_completo.pdf
+
+cover:
+  title: "Guida Completa a Google Family Link"
+  subtitle: "Come configurare e gestire in modo graduale e condiviso lo smartphone o tablet Android di tuo figlio"
+  author: "Alfredo Morresi (Edulogia.it)"
+  version: "1.0.0"
+  date: "Ottobre 2026"
+  logo: "assets/images/logo-placeholder.svg"
+
+options:
+  include_toc: true
+  toc_title: "Indice dei Contenuti"
+  chapter_page_break: true
+
+sections:
+  - title: "Capitolo 1: Introduzione e approccio educativo"
+    description: "Perché usare il controllo parentale, quali sono i requisiti e come accompagnare i figli nel mondo digitale."
+    fragments:
+      - family-link-perche-questa-guida
+      - family-link-requisiti
+      - family-link-approccio-educativo
+
+  - title: "Capitolo 2: Creazione del Gruppo Famiglia"
+    description: "Come installare l'app Family Link sul telefono del genitore e creare l'account Google supervisionato per il figlio."
+    fragments:
+      - family-link-installazione-genitore
+      - family-link-scelta-account-figlio
+      - family-link-account-minore-14
+
+  - title: "Capitolo 3: Configurazione del cellulare per tuo figlio/a"
+    description: "Passaggi del primo avvio sul dispositivo Android: filtri contenuti, app preinstallate, YouTube, tempi e posizione."
+    fragments:
+      - family-link-primo-avvio-cellulare
+      - family-link-filtri-play-store
+      - family-link-filtri-chrome-ricerca
+      - family-link-scelta-app-preinstallate
+      - family-link-configurazione-youtube
+      - family-link-limiti-tempo-primo-avvio
+      - family-link-condivisione-posizione
+
+  - title: "Capitolo 4: Controllare il cellulare tramite Family Link"
+    description: "Gestione quotidiana dei limiti di tempo giornalieri, limiti per singola app, tempo senza schermo e orario scolastico."
+    fragments:
+      - family-link-panoramica-controlli
+      - family-link-limite-tempo-giornaliero
+      - family-link-limiti-per-app
+      - family-link-tempo-senza-schermo
+      - family-link-orario-scolastico

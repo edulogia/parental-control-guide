@@ -56,3 +56,4 @@ Questo file documenta l'architettura, le convenzioni e lo storico delle implemen
   - Aggiunto il campo `"license": "CC-BY-SA-4.0"` in `package.json` e aggiornata la documentazione in `README.md`.
   - Aggiunti 4 nuovi tag in `guides/tags.yaml`: `android`, `family-link`, `genitori`, `controllo-parentale`.
   - Estratte 82 immagini in `assets/images/android/family_link/` e creati 18 frammenti modulari in `fragments/android/family_link/` a partire dal documento sorgente su Google Family Link.
+  - Creata la ricetta `guides/family_link_completo.yaml` (`family_link_completo.pdf`) che assembla tutti i 18 frammenti nell'ordine del documento originale.
