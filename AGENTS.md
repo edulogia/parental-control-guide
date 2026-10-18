@@ -57,4 +57,4 @@ Questo file documenta l'architettura, le convenzioni e lo storico delle implemen
   - Aggiunti 4 nuovi tag in `guides/tags.yaml`: `android`, `family-link`, `genitori`, `controllo-parentale`.
   - Estratte 82 immagini in `assets/images/android/family_link/` e creati 18 frammenti modulari in `fragments/android/family_link/` a partire dal documento sorgente su Google Family Link.
   - Creata la ricetta `guides/family_link_completo.yaml` (`family_link_completo.pdf`) che assembla tutti i 18 frammenti nell'ordine del documento originale.
-  - Ripristinato e configurato il workflow `.github/workflows/build-guides.yml` per mantenere aggiornata un'unica GitHub Release fissa (`latest`) con i PDF allegati ad ogni modifica di guide, frammenti, asset o temi su `main`.
+  - Ripristinato e configurato il workflow `.github/workflows/build-guides.yml` (con actions `@v5` su Node.js 24) per mantenere aggiornata un'unica GitHub Release fissa (`latest`) con i PDF allegati ad ogni modifica di guide, frammenti, asset o temi su `main`.
