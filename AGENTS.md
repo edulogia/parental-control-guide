@@ -58,3 +58,4 @@ Questo file documenta l'architettura, le convenzioni e lo storico delle implemen
   - Estratte 82 immagini in `assets/images/android/family_link/` e creati 18 frammenti modulari in `fragments/android/family_link/` a partire dal documento sorgente su Google Family Link.
   - Creata la ricetta `guides/family_link_completo.yaml` (`family_link_completo.pdf`) che assembla tutti i 18 frammenti nell'ordine del documento originale.
   - Ripristinato e configurato il workflow `.github/workflows/build-guides.yml` (con actions `@v5` su Node.js 24) per mantenere aggiornata un'unica GitHub Release fissa (`latest`) con i PDF allegati ad ogni modifica di guide, frammenti, asset o temi su `main`.
+  - Sostituiti in `package-lock.json` i 126 URL interni del proxy aziendale (`airlock-proxy.uplink.goog`) con gli URL pubblici di `registry.npmjs.org` per garantire il funzionamento di `npm ci` su GitHub Actions.
