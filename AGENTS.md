@@ -51,6 +51,8 @@ Questo file documenta l'architettura, le convenzioni e lo storico delle implemen
   - **Controllo collisioni e frammenti orfani (#6)**: aggiunto controllo di unicità su `id` e `output_filename` nelle ricette YAML e rilevamento automatico dei frammenti orfani (`findOrphanFragments`) in `validate` e `catalog`.
   - **Riferimenti incrociati tra frammenti (#8)**: trasformazione automatica dei link Markdown tra frammenti in ancore interne cliccabili nel PDF (`#fragment-<id>` o sottotitoli) quando il frammento di destinazione è incluso nella guida.
   - **Test e CI/CD (#9, #10)**: rimossi i conteggi cablati dei file nei test di workspace (`tests/builder.test.ts`), aggiunti test per le nuove funzionalità e inserito lo step `npm run typecheck` nel workflow GitHub Actions.
-- **2026-10-18**: Impostazione licenza CC-BY-SA-4.0:
+- **2026-10-18**: Impostazione licenza CC-BY-SA-4.0 e importazione guida Android Family Link:
   - Aggiunto il file `LICENSE` con il testo integrale della licenza Creative Commons Attribution-ShareAlike 4.0 International (`CC-BY-SA-4.0`).
   - Aggiunto il campo `"license": "CC-BY-SA-4.0"` in `package.json` e aggiornata la documentazione in `README.md`.
+  - Aggiunti 4 nuovi tag in `guides/tags.yaml`: `android`, `family-link`, `genitori`, `controllo-parentale`.
+  - Estratte 82 immagini in `assets/images/android/family_link/` e creati 18 frammenti modulari in `fragments/android/family_link/` a partire dal documento sorgente su Google Family Link.

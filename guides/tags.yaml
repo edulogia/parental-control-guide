@@ -15,3 +15,11 @@ tags:
     description: Istruzioni specifiche per gli studenti
   - id: sicurezza
     description: Buone pratiche per la protezione dell'account e dei dati
+  - id: android
+    description: Dispositivi, impostazioni e procedure per smartphone e tablet Android
+  - id: family-link
+    description: Gestione del gruppo famiglia e supervisione con Google Family Link
+  - id: genitori
+    description: Istruzioni e approfondimenti dedicati ai genitori
+  - id: controllo-parentale
+    description: Filtri sui contenuti, limiti di tempo e protezione dei minori online
