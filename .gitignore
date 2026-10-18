@@ -151,6 +151,9 @@ vite.config.ts.timestamp-*
 
 # Poject specific
 *.log
+resume-agent.sh
 
 # Mac specific
 .DS_Store
+
+
