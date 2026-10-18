@@ -1,0 +1,100 @@
+name: Build and Release Guides
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-and-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-release:
+    name: Validate, Build PDF & Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Validate tags, fragments and guides
+        run: npm run validate
+
+      - name: Run automated tests
+        run: npm test
+
+      - name: Build PDF guides
+        run: npm run build
+
+      - name: Upload PDF artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: guides-pdf
+          path: dist/*.pdf
+          if-no-files-found: error
+
+      - name: Check if guide files changed
+        id: check_changes
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          BEFORE_SHA="${{ github.event.before }}"
+          if [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ] || [ -z "$BEFORE_SHA" ]; then
+            CHANGED_FILES=$(git show --pretty="" --name-only "${{ github.sha }}")
+          else
+            CHANGED_FILES=$(git diff --name-only "$BEFORE_SHA" "${{ github.sha }}")
+          fi
+
+          echo "File modificati nel push:"
+          echo "$CHANGED_FILES"
+
+          if echo "$CHANGED_FILES" | grep -qE '^(guides|fragments|assets|themes)/'; then
+            echo "guides_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "guides_changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update single 'latest' GitHub Release with PDF guides
+        if: >-
+          (github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.check_changes.outputs.guides_changed == 'true') ||
+          github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE_STR=$(date -u +'%Y-%m-%d %H:%M UTC')
+          TAG="latest"
+          TITLE="Guide PDF (aggiornate al ${DATE_STR})"
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release delete "$TAG" --yes --cleanup-tag
+          fi
+
+          gh release create "$TAG" dist/*.pdf \
+            --target "${{ github.sha }}" \
+            --title "$TITLE" \
+            --notes "Versione unica aggiornata automaticamente dal commit ${{ github.sha }}." \
+            --latest

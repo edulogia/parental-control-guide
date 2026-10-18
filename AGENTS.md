@@ -9,7 +9,7 @@ Questo file documenta l'architettura, le convenzioni e lo storico delle implemen
 2. **Catalogo Tag Centrale (`guides/tags.yaml`)**: definisce la lista fissa dei tag ammessi. Nessun frammento può utilizzare tag assenti da questo file.
 3. **Ricette di Ricomposizione (`guides/*.yaml`)**: file YAML che definiscono i metadati di copertina, le opzioni di impaginazione e la sequenza di capitoli e frammenti da assemblare per generare una guida finale in PDF.
 4. **Motore di Build (`src/`)**: scritto in Node.js + TypeScript, valida i file con `zod`, converte e normalizza il Markdown con `markdown-it` (inclusi callout GitHub `[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]`, `[!CAUTION]`, tabelle e immagini incorporate in Base64) e genera il PDF in formato A4 tramite **Playwright (Chromium)** senza intestazione né piè di pagina.
-5. **CI/CD (`.github/workflows/build-guides.yml`)**: GitHub Action attivata ad ogni commit/PR che esegue validazione, test e generazione PDF, caricando i PDF risultanti come Artifact della Action (senza pubblicazione su GitHub Pages).
+5. **CI/CD (`.github/workflows/build-guides.yml`)**: GitHub Action attivata ad ogni commit/PR che esegue validazione, test e generazione PDF, caricando i PDF risultanti come Artifact e mantenendo aggiornata un'unica GitHub Release fissa (`latest`) su `main` ogni volta che cambiano i file di guide, frammenti, asset o temi.
 
 ## Regole e Convenzioni Tecniche
 
@@ -57,3 +57,4 @@ Questo file documenta l'architettura, le convenzioni e lo storico delle implemen
   - Aggiunti 4 nuovi tag in `guides/tags.yaml`: `android`, `family-link`, `genitori`, `controllo-parentale`.
   - Estratte 82 immagini in `assets/images/android/family_link/` e creati 18 frammenti modulari in `fragments/android/family_link/` a partire dal documento sorgente su Google Family Link.
   - Creata la ricetta `guides/family_link_completo.yaml` (`family_link_completo.pdf`) che assembla tutti i 18 frammenti nell'ordine del documento originale.
+  - Ripristinato e configurato il workflow `.github/workflows/build-guides.yml` per mantenere aggiornata un'unica GitHub Release fissa (`latest`) con i PDF allegati ad ogni modifica di guide, frammenti, asset o temi su `main`.
