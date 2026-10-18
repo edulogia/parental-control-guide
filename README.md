@@ -2,7 +2,7 @@
 
 Sistema modulare per comporre e generare **guide in formato PDF** a partire da piccoli blocchi di istruzioni scritti in **Markdown** (**frammenti**) e assemblati tramite file di configurazione **YAML** (**ricette**).
 
-Ad ogni nuovo commit o pull request, una **GitHub Action** valida tutti i frammenti e le ricette, genera automaticamente i PDF finali (scaricabili come **Artifact** della Action) e, quando vengono modificate le guide sul branch `main`, aggiorna l'unica **GitHub Release** (`latest`) sovrascrivendo i PDF allegati.
+Ad ogni push sul branch `main` (o tramite avvio manuale), una **GitHub Action** valida tutti i frammenti e le ricette, genera un file PDF distinto per ciascuna guida e aggiorna l'unica **GitHub Release** (`latest`) allegando i singoli PDF.
 
 ---
 

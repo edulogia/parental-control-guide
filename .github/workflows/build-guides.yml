@@ -24,8 +24,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -51,40 +49,20 @@ jobs:
       - name: Build PDF guides
         run: npm run build
 
-      - name: Upload PDF artifacts
-        uses: actions/upload-artifact@v5
-        with:
-          name: guides-pdf
-          path: dist/*.pdf
-          if-no-files-found: error
-
-      - name: Check if guide files changed
-        id: check_changes
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          BEFORE_SHA="${{ github.event.before }}"
-          if [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ] || [ -z "$BEFORE_SHA" ]; then
-            CHANGED_FILES=$(git show --pretty="" --name-only "${{ github.sha }}")
-          else
-            CHANGED_FILES=$(git diff --name-only "$BEFORE_SHA" "${{ github.sha }}")
-          fi
-
-          echo "File modificati nel push:"
-          echo "$CHANGED_FILES"
-
-          if echo "$CHANGED_FILES" | grep -qE '^(guides|fragments|assets|themes)/'; then
-            echo "guides_changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "guides_changed=false" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Update single 'latest' GitHub Release with PDF guides
         if: >-
-          (github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.check_changes.outputs.guides_changed == 'true') ||
+          (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
           github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          shopt -s nullglob
+          PDF_FILES=(dist/*.pdf)
+          if [ ${#PDF_FILES[@]} -eq 0 ]; then
+            echo "Errore: nessun file PDF trovato in dist/."
+            exit 1
+          fi
+
           DATE_STR=$(date -u +'%Y-%m-%d %H:%M UTC')
           TAG="latest"
           TITLE="Guide PDF (aggiornate al ${DATE_STR})"
@@ -93,8 +71,8 @@ jobs:
             gh release delete "$TAG" --yes --cleanup-tag
           fi
 
-          gh release create "$TAG" dist/*.pdf \
+          gh release create "$TAG" "${PDF_FILES[@]}" \
             --target "${{ github.sha }}" \
             --title "$TITLE" \
-            --notes "Versione unica aggiornata automaticamente dal commit ${{ github.sha }}." \
+            --notes "Guide PDF generate automaticamente dal commit ${{ github.sha }}." \
             --latest
