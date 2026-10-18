@@ -1,0 +1,28 @@
+id: guida-docenti
+output_filename: guida-docenti-completa.pdf
+
+cover:
+  title: "Guida Operativa per i Docenti"
+  subtitle: "Manuale pratico per il primo accesso, la configurazione del profilo e la gestione dei materiali didattici"
+  author: "Team Edulogia"
+  version: "1.0.0"
+  date: "Ottobre 2026"
+  logo: "assets/images/logo-placeholder.svg"
+
+options:
+  include_toc: true
+  toc_title: "Indice dei Contenuti"
+  chapter_page_break: true
+
+sections:
+  - title: "Capitolo 1: Accesso e Sicurezza dell'Account"
+    description: "Procedure preliminari per attivare il proprio profilo istituzionale e gestire le credenziali."
+    fragments:
+      - login-base
+      - recupero-password
+
+  - title: "Capitolo 2: Configurazione e Attività Didattica"
+    description: "Come personalizzare il profilo docente e pubblicare i materiali per le proprie classi."
+    fragments:
+      - creazione-profilo
+      - caricamento-materiali

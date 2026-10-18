@@ -1,0 +1,17 @@
+# Lista ufficiale dei tag utilizzabili nel frontmatter dei frammenti Markdown.
+# Ogni tag utilizzato in un file dentro fragments/ DEVE essere presente in questo elenco.
+tags:
+  - id: accesso
+    description: Procedure di autenticazione, login e gestione credenziali
+  - id: onboarding
+    description: Primi passi per nuovi utenti della piattaforma
+  - id: configurazione
+    description: Impostazioni del profilo e preferenze account
+  - id: didattica
+    description: Gestione corsi, classi e materiali didattici
+  - id: docenti
+    description: Istruzioni specifiche per il corpo docente
+  - id: studenti
+    description: Istruzioni specifiche per gli studenti
+  - id: sicurezza
+    description: Buone pratiche per la protezione dell'account e dei dati

@@ -1,0 +1,28 @@
+{
+  "name": "edulogia-guide",
+  "version": "1.0.0",
+  "description": "Generatore modulare di guide PDF basato su frammenti Markdown e ricette YAML",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "validate": "tsx src/cli.ts validate",
+    "build": "tsx src/cli.ts build",
+    "catalog": "tsx src/cli.ts catalog",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
+    "playwright": "^1.51.0",
+    "yaml": "^2.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^22.13.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.7"
+  }
+}

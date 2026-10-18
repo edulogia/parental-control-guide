@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 140" width="600" height="140">
+  <rect width="600" height="140" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="30" y="35" width="140" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e3a8a">1. Email Istituzionale</text>
+  <text x="100" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Ricezione credenziali</text>
+
+  <path d="M180 70 L220 70" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="230" y="35" width="140" height="70" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="300" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#14532d">2. Primo Login</text>
+  <text x="300" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Cambio password</text>
+
+  <path d="M380 70 L420 70" stroke="#64748b" stroke-width="2"/>
+
+  <rect x="430" y="35" width="140" height="70" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="500" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#581c87">3. Dashboard Attiva</text>
+  <text x="500" y="86" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#475569">Accesso completo</text>
+</svg>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{TITLE}}</title>
+  <style>
+{{STYLES}}
+  </style>
+</head>
+<body>
+  <!-- COPERTINA -->
+  <section class="cover-page">
+    <div class="cover-top">
+      {{LOGO_HTML}}
+      <div class="cover-badge">GUIDA UFFICIALE</div>
+      <h1 class="cover-title">{{TITLE}}</h1>
+      {{SUBTITLE_HTML}}
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-meta-grid">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Autore</span>
+          <span class="cover-meta-value">{{AUTHOR}}</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Versione</span>
+          <span class="cover-meta-value">{{VERSION}}</span>
+        </div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Aggiornamento</span>
+          <span class="cover-meta-value">{{DATE}}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDICE (TOC) -->
+  {{TOC_HTML}}
+
+  <!-- CONTENUTO PRINCIPALE -->
+  <main class="guide-content">
+    {{CONTENT_HTML}}
+  </main>
+</body>
+</html>
